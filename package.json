@@ -1,14 +1,18 @@
 {
 	"name": "readit",
-	"version": "1.0.0",
-	"description": "Master Electron Course Code",
+	"version": "1.1.0",
+	"description": "Master Electron Project",
 	"main": "main.js",
 	"scripts": {
 		"start": "electron .",
 		"watch": "nodemon --exec electron .",
-		"reset": "git reset --hard"
+		"reset": "git reset --hard",
+		"build": "electron-builder -w",
+		"release": "electron-builder -w -p onTagOrDraft",
+		"win-cert": "electron-builder create-self-signed-cert -p ajilpappachan"
 	},
 	"repository": "https://github.com/ajilpappachan/readit",
+	"homepage": "https://github.com/ajilpappachan/readit",
 	"keywords": [
 		"Electron",
 		"Master Electron",
@@ -18,9 +22,29 @@
 	"license": "CC0-1.0",
 	"devDependencies": {
 		"electron": "^9.0.0",
+		"electron-builder": "^22.13.1",
 		"nodemon": "^2.0.0"
 	},
 	"dependencies": {
+		"electron-log": "^4.4.1",
+		"electron-updater": "^4.3.9",
 		"electron-window-state": "^5.0.3"
+	},
+	"build": {
+		"appId": "com.ajilpappachan.readit",
+		"copyright": "Copyright (c) Ajil Pappachan",
+		"publish": "github",
+		"mac": {
+			"category": "public.app-category.productivity"
+		},
+		"win": {
+			"certificateFile": "private/ajilpappachan.pfx",
+			"certificatePassword": "",
+			"verifyUpdateCodeSignature": false,
+			"publisherName": "ajilpappachan"
+		},
+		"linux": {
+			"category": "Utility"
+		}
 	}
 }

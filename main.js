@@ -20,7 +20,7 @@ ipcMain.on("new-item", (e, itemUrl) => {
 // Create a new BrowserWindow when `app` is ready
 function createWindow() {
 	// Check for app updates after 3 seconds
-	setTimeout(updater, 3000);
+	setTimeout(updater, 1500);
 
 	// Win state Keeper
 	let state = windowStateKeeper({
